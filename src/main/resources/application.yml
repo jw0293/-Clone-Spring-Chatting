@@ -2,6 +2,8 @@ server:
   port: 9090
 
 spring:
+  jwt:
+    secret: govlepe1@$&
   profiles:
     active: local
   redis:

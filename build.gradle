@@ -25,6 +25,10 @@ dependencies {
 	implementation 'org.webjars:stomp-websocket:2.3.3-1'
 	implementation 'com.google.code.gson:gson:2.8.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+	// SpringSecurity 및 Jwt 적용을 위해 추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	//embedded-redis
 	implementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
 

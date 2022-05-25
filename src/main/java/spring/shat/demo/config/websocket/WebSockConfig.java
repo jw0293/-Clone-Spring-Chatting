@@ -1,4 +1,4 @@
-package spring.shat.demo.config;
+package spring.shat.demo.config.websocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

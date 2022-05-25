@@ -27,6 +27,8 @@ public class ChatRoomRepository {
     // Redis
     private static final String CHAT_ROOMS = "CHAT_ROOM";
     private final RedisTemplate<String, Object> redisTemplate;
+
+    // 채팅방 정보가 초기화 되지 않도록 생성 시 Redis Hash에 저장하도록 처리
     private HashOperations<String, String, ChatRoom> opsHashChatRoom;
 
     // 채팅방의 대화 메세지를 발행하기 위한 redis topic 정보. 서버별로 채팅방에 매치되는 topic 정보를 Map에 넣어 roonId로 찾을 수 있도록 한다.
