@@ -1,11 +1,15 @@
 package spring.shat.demo.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import spring.shat.demo.dto.ChatRoom;
+import spring.shat.demo.dto.LoginInfo;
 import spring.shat.demo.repository.ChatRoomRepository;
+import spring.shat.demo.service.JwtTokenProvider;
 
 import java.util.List;
 
@@ -15,6 +19,7 @@ import java.util.List;
 public class ChatRoomController {
 
     private final ChatRoomRepository chatRoomRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     // 채팅 리스트 화면
     @GetMapping("/room")
@@ -49,4 +54,16 @@ public class ChatRoomController {
     public ChatRoom roomInfo(@PathVariable String roomId){
         return chatRoomRepository.findRoomById(roomId);
     }
+
+    @GetMapping("/user")
+    @ResponseBody
+    public LoginInfo getUserInfo(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        return LoginInfo.builder()
+                .name(name)
+                .token(jwtTokenProvider.generateToken(name))
+                .build();
+    }
+
 }

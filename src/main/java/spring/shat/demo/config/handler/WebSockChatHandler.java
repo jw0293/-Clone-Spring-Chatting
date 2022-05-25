@@ -1,4 +1,4 @@
-package spring.shat.demo.config.websocket;
+package spring.shat.demo.config.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

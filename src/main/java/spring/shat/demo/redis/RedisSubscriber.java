@@ -21,8 +21,6 @@ public class RedisSubscriber implements MessageListener {
 
     /**
      * Redis에서 메세지가 발행(publish)되면 대기하고 있던 onMessage가 해당 메세지를 받아 처리
-     * @param message
-     * @param pattern
      */
 
     @Override
